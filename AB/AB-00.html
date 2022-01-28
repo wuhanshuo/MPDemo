@@ -53,13 +53,13 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Component AB-00</h1>
-							<span class="image main"><img src="../images/TypeA.PNG" alt="" /></span>
+							<span class="image main"><img src="../images/cart.jpg" alt="" /></span>
 							<p>intro text</p>
 							
 							<section>
 								<h2>Properties Table</h2>
 								<div class="table-wrapper">
-									<table>
+									<table class="alt">
 										<thead>
 											<tr>
 												<th>CID</th>
@@ -67,32 +67,103 @@
 												<th>Project Location</th>
 												<th>Install Date</th>
 												<th>Material</th>
+												<th>Material Sub-Type</th>
 												<th>Height (mm)</th>
 												<th>Width (mm)</th>
 												<th>Length (mm)</th>
+												<th>Condition</th>
 											  </tr>
 										</thead>
 										<tbody>
 											<tr>
-												<th>:S-AA00:</th>
+												<th>:S-AA16:</th>
 												<th>Fiat Factory</th>
 												<th>Geneva, CH</th>
 												<th>unknown</th>
 												<th>Wood</th>
-												<th>6900</th>
-												<th>140</th>
-												<th>190</th>
+												<th>Pine</th>
+												<th>135</th>
+												<th>100</th>
+												<th>3810</th>
+												<th>Good</th>
 											  </tr>
 											  <tr>
-												<th>:S-AA00:_:S-AA00:</th>
+												<th>:S-AA16:_:S-AB00:</th>
 												<th>CEA Dome</th>
 												<th>Zurich, CH</th>
 												<th>25.01.2022</th>
 												<th>Wood</th>
-												<th>1924</th>
-												<th>70</th>
-												<th>50</th>
+												<th>Pine</th>
+												<th>66</th>
+												<th>46</th>
+												<th>910</th>
+												<th>Good</th>
 											  </tr>
+										</tbody>
+									</table>
+								</div>
+								<button id="export">Export</button>
+								<script type="text/javascript">
+									function tableToCSV() {
+							 
+										// Variable to store the final csv data
+										var csv_data = [];
+							 
+										// Get each row data
+										var rows = document.getElementsByTagName('tr');
+										for (var i = 0; i < rows.length; i++) {
+							 
+											// Get each column data
+											var cols = rows[i].querySelectorAll('td,th');
+							 
+											// Stores each csv row data
+											var csvrow = [];
+											for (var j = 0; j < cols.length; j++) {
+							 
+												// Get the text data of each cell
+												// of a row and push it to csvrow
+												csvrow.push(cols[j].innerHTML);
+											}
+							 
+											// Combine each column value with comma
+											csv_data.push(csvrow.join(","));
+										}
+							 
+										// Combine each row data with new line character
+										csv_data = csv_data.join('\n');
+							 
+										// Call this function to download csv file 
+										downloadCSVFile(csv_data);
+							 
+									}
+							 
+									function downloadCSVFile(csv_data) {
+							 
+										// Create CSV file object and feed
+										// our csv_data into it
+										CSVFile = new Blob([csv_data], {
+											type: "text/csv"
+										});
+							 
+										// Create to temporary link to initiate
+										// download process
+										var temp_link = document.createElement('a');
+							 
+										// Download csv file
+										temp_link.download = "GfG.csv";
+										var url = window.URL.createObjectURL(CSVFile);
+										temp_link.href = url;
+							 
+										// This link should not be displayed
+										temp_link.style.display = "none";
+										document.body.appendChild(temp_link);
+							 
+										// Automatically click the link to
+										// trigger download
+										temp_link.click();
+										document.body.removeChild(temp_link);
+									}
+								</script>
 							</section>
 						</div>
 					</div>

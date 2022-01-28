@@ -11,6 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<style>
+			.scale-down {object-fit: scale-down;}
+			.auto {max-width: 50%; height: auto;}
+		</style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -109,7 +113,7 @@
 									</table>
 								</div>
 								<br><br>
-        						<button type="button">Download Table</button>
+        						<!-- <button type="button">Download Table</button>
 								<script>
 									function htmlToCSV(html, filename) {
 										var data = [];
@@ -147,7 +151,7 @@
 											var html = document.querySelector("table").outerHTML;
 											htmlToCSV(html, "students.csv");
 										});
-									</script>
+									</script> -->
 
 									<button type="button" onclick="tableToCSV()"> download CSV</button>
 									<script type="text/javascript">
@@ -211,9 +215,9 @@
 											document.body.removeChild(temp_link);
 										}
 									</script>
-								
-								<img src="../images/cart.jpg" alt="">
-								
+								<br>
+								<img class="scale-down" src="../images/cart.jpg" alt="" style="width:400px;height:300px">
+								<img class="auto" src="../images/cart.jpg" alt="">
 							</section>
 						</div>
 					</div>

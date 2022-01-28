@@ -112,92 +112,38 @@
 										</tfoot>
 									</table>
 								</div>
-								<br><br>
-        						<!-- <button type="button">Download Table</button>
-								<script>
-									function htmlToCSV(html, filename) {
-										var data = [];
-										var rows = document.querySelectorAll("table tr");
-												
-										for (var i = 0; i < rows.length; i++) {
-											var row = [], cols = rows[i].querySelectorAll("td, th");
-													
-											for (var j = 0; j < cols.length; j++) {
-													row.push(cols[j].innerText);
-											}
-													
-											data.push(row.join(",")); 		
-										}
-									
-										downloadCSVFile(data.join("\n"), filename);
-									}
-									</script>
-									<script>
-										function downloadCSVFile(csv, filename) {
-											var csv_file, download_link;
-										
-											csv_file = new Blob([csv], {type: "text/csv"});
-										
-											download_link = document.createElement("a");
-											download_link.download = filename;
-											download_link.href = window.URL.createObjectURL(csv_file);
-											download_link.style.display = "none";
-											document.body.appendChild(download_link);
-											download_link.click();
-										}
-									</script>
-									<script>
-										document.getElementById("download-button").addEventListener("click", function () {
-											var html = document.querySelector("table").outerHTML;
-											htmlToCSV(html, "students.csv");
-										});
-									</script> -->
-
+								<br>
 									<button type="button" onclick="tableToCSV()"> download CSV</button>
 									<script type="text/javascript">
 										function tableToCSV() {
-								 
-											// Variable to store the final csv data
+								 			// Variable to store the final csv data
 											var csv_data = [];
-								 
-											// Get each row data
+								 			// Get each row data
 											var rows = document.getElementsByTagName('tr');
 											for (var i = 0; i < rows.length; i++) {
-								 
-												// Get each column data
+								 				// Get each column data
 												var cols = rows[i].querySelectorAll('td,th');
-								 
-												// Stores each csv row data
+								 				// Stores each csv row data
 												var csvrow = [];
 												for (var j = 0; j < cols.length; j++) {
-								 
-													// Get the text data of each cell
+								 					// Get the text data of each cell
 													// of a row and push it to csvrow
-													csvrow.push(cols[j].innerHTML);
-												}
+													csvrow.push(cols[j].innerHTML);}
 								 
 												// Combine each column value with comma
-												csv_data.push(csvrow.join(","));
-											}
+												csv_data.push(csvrow.join(","));}
 								 
 											// Combine each row data with new line character
 											csv_data = csv_data.join('\n');
-								 
-											// Call this function to download csv file 
-											downloadCSVFile(csv_data);
-								 
+								 			// Call this function to download csv file 
+											downloadCSVFile(csv_data);			 
 										}
 								 
-										function downloadCSVFile(csv_data) {
+										function downloadCSVFile(csv_data) {								 
+											// Create CSV file object and feed our csv_data into it
+											CSVFile = new Blob([csv_data], {type: "text/csv"});
 								 
-											// Create CSV file object and feed
-											// our csv_data into it
-											CSVFile = new Blob([csv_data], {
-												type: "text/csv"
-											});
-								 
-											// Create to temporary link to initiate
-											// download process
+											// Create to temporary link to initiate download process
 											var temp_link = document.createElement('a');
 								 
 											// Download csv file
@@ -209,14 +155,16 @@
 											temp_link.style.display = "none";
 											document.body.appendChild(temp_link);
 								 
-											// Automatically click the link to
-											// trigger download
+											// Automatically click the link to trigger download
 											temp_link.click();
 											document.body.removeChild(temp_link);
 										}
 									</script>
 								<br>
+								<h2>scale down</h2>
 								<img class="scale-down" src="../images/cart.jpg" alt="" style="width:400px;height:300px">
+								<br>
+								<h2>auto</h2>
 								<img class="auto" src="../images/cart.jpg" alt="">
 							</section>
 						</div>

@@ -2170,8 +2170,8 @@ input, select, textarea {
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-bottom-color: #f2849e;
-			box-shadow: inset 0 -1px 0 0 #f2849e;
+			border-bottom-color: #439780;
+			box-shadow: inset 0 -1px 0 0 #439780;
 		}
 
 	select {
@@ -2275,8 +2275,8 @@ input, select, textarea {
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #f2849e;
-			box-shadow: 0 0 0 1px #f2849e;
+			border-color: #439780;
+			box-shadow: 0 0 0 1px #439780;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2706,7 +2706,7 @@ input, select, textarea {
 					}
 
 			.tiles article.style1 > .image:before {
-				background-color: #439781a6;
+				background-color: #53b198a1;
 			}
 
 			.tiles article.style2 > .image:before {

@@ -13,7 +13,7 @@
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 		<style>
 			.scale-down {object-fit: scale-down;}
-			.auto {max-width: 50%; height: auto;}
+			.auto {display: block;  margin-left: auto;  margin-right: auto; max-width: 70%; height: auto;}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -59,7 +59,7 @@
 							<h1>Component AB-00</h1>
 							<!-- <p>intro text</p> -->							
 							<section>
-								<h2>Properties Table</h2>
+								<!-- <h2>Properties Table</h2> -->
 								<div class="table-wrapper">
 									<table class="alt">
 										<thead>
@@ -129,11 +129,9 @@
 								 					// Get the text data of each cell
 													// of a row and push it to csvrow
 													csvrow.push(cols[j].innerHTML);}
-								 
-												// Combine each column value with comma
+								 				// Combine each column value with comma
 												csv_data.push(csvrow.join(","));}
-								 
-											// Combine each row data with new line character
+								 			// Combine each row data with new line character
 											csv_data = csv_data.join('\n');
 								 			// Call this function to download csv file 
 											downloadCSVFile(csv_data);			 
@@ -142,11 +140,9 @@
 										function downloadCSVFile(csv_data) {								 
 											// Create CSV file object and feed our csv_data into it
 											CSVFile = new Blob([csv_data], {type: "text/csv"});
-								 
-											// Create to temporary link to initiate download process
+								 			// Create to temporary link to initiate download process
 											var temp_link = document.createElement('a');
-								 
-											// Download csv file
+								 			// Download csv file
 											temp_link.download = "GfG.csv";
 											var url = window.URL.createObjectURL(CSVFile);
 											temp_link.href = url;
@@ -160,12 +156,10 @@
 											document.body.removeChild(temp_link);
 										}
 									</script>
-								<br>
-								<h2>scale down</h2>
-								<img class="scale-down" src="../images/cart.jpg" alt="" style="width:400px;height:300px">
-								<br>
-								<h2>auto</h2>
-								<img class="auto" src="../images/cart.jpg" alt="">
+								<br><br>
+								<div>
+									<img class="auto" src="../images/cart.jpg" alt="">
+								</div>
 							</section>
 						</div>
 					</div>

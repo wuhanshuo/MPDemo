@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Type S-AF</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<style>
+			.scale-down {object-fit: scale-down;}
+			.auto {display: block;  margin-left: auto;  margin-right: auto; max-width: 70%; height: auto;}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../index.html" class="logo">
+									<span class="symbol"><img src="../images/cea.svg" alt="" /></span><span class="title">CEA - Dome1</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">Home</a></li>
+							<li><a href="../about.html">About</a></li>
+							<li><a href="../AA.html">Type AA</a></li>
+							<li><a href="../AB.html">Type AB</a></li>
+							<li><a href="../AC.html">Type AC</a></li>
+							<li><a href="../AD.html">Type AD</a></li>
+							<li><a href="../AE.html">Type AE</a></li>
+							<li><a href="../AF.html">Type AF</a></li>
+							<!-- <li><a href="elements.html">Elements</a></li> -->
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Component AF-04</h1>
+							<!-- <p>intro text</p> -->							
+							<section>
+								<!-- <h2>Properties Table</h2> -->
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Life Cycle</th>
+												<th>CID</th>
+												<th>Project Name</th>
+												<th>Project Location</th>
+												<th>Install Date</th>
+												<th>Removal Date</th>
+												<th>Material</th>
+												<th>Material Sub-Type</th>
+												<th>Height (mm)</th>
+												<th>Width (mm)</th>
+												<th>Length (mm)</th>
+												<th>Weight (kg)</th>
+												<th>Condition</th>
+											  </tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><b>1</b></td>
+												<td>:S-AA07:</td>
+												<td>Fiat Factory</td>
+												<td>Geneva, CH</td>
+												<td>unknown</td>
+												<td>15.10.2021</td>
+												<td>Wood</td>
+												<td>Pine</td>
+												<td>135</td>
+												<td>95</td>
+												<td>2550</td>
+												<td>12.62</td>
+												<td>Good</td>
+											  </tr>
+											  <tr>
+												<td><b>2</b></td>
+												<td>:S-AA07&lt;_:S-AD31:</td>
+												<td>CEA Dome</td>
+												<td>Zurich, CH</td>
+												<td>25.01.2022</td>
+												<td>03.02.2022</td>
+												<td>Wood</td>
+												<td>Pine</td>
+												<td>66</td>
+												<td>46</td>
+												<td>1094</td>
+												<td>1.28</td>
+												<td>Good</td>
+											  </tr>
+											  <tr>
+												<td><b>3</b></td>
+												<td>:S-AA07&lt;_:S-AD31:_:S-AF04:</td>
+												<td>CEA Dome</td>
+												<td>Zurich, CH</td>
+												<td>03.02.2022</td>
+												<td>unknown</td>
+												<td>Wood</td>
+												<td>Pine</td>
+												<td>66</td>
+												<td>46</td>
+												<td>1054</td>
+												<td>1.235</td>
+												<td>Good</td>
+											  </tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2"></td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<br>
+									<button type="button" onclick="tableToCSV()"> download CSV</button>
+									<script type="text/javascript">
+										function tableToCSV() {
+								 			// Variable to store the final csv data
+											var csv_data = [];
+								 			// Get each row data
+											var rows = document.getElementsByTagName('tr');
+											for (var i = 0; i < rows.length; i++) {
+								 				// Get each column data
+												var cols = rows[i].querySelectorAll('td,th');
+								 				// Stores each csv row data
+												var csvrow = [];
+												for (var j = 0; j < cols.length; j++) {
+								 					// Get the text data of each cell
+													// of a row and push it to csvrow
+													csvrow.push(cols[j].innerHTML);}
+								 				// Combine each column value with comma
+												csv_data.push(csvrow.join(","));}
+								 			// Combine each row data with new line character
+											csv_data = csv_data.join('\n');
+								 			// Call this function to download csv file 
+											downloadCSVFile(csv_data);			 
+										}
+								 
+										function downloadCSVFile(csv_data) {								 
+											// Create CSV file object and feed our csv_data into it
+											CSVFile = new Blob([csv_data], {type: "text/csv"});
+								 			// Create to temporary link to initiate download process
+											var temp_link = document.createElement('a');
+								 			// Download csv file
+											temp_link.download = "Component.csv";
+											var url = window.URL.createObjectURL(CSVFile);
+											temp_link.href = url;
+								 
+											// This link should not be displayed
+											temp_link.style.display = "none";
+											document.body.appendChild(temp_link);
+								 
+											// Automatically click the link to trigger download
+											temp_link.click();
+											document.body.removeChild(temp_link);
+										}
+									</script>
+								<br><br>
+								<div>
+									<img class="auto" src="../images/cart.jpg" alt="">
+								</div>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://twitter.com/catherinedewolf" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.linkedin.com/company/ceaethz/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://www.instagram.com/catherinedewolf/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/cea-eth" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://cea.ibi.ethz.ch/" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

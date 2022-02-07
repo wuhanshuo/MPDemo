@@ -99,7 +99,7 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-05.html"><b>AD-05</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-06</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -174,7 +174,7 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-20.html"><b>AD-20</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-02</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -214,7 +214,7 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-28.html"><b>AD-28</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-00</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -229,7 +229,7 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-31.html"><b>AD-31</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-04</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -239,7 +239,7 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-33.html"><b>AD-33</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-08</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -259,12 +259,12 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-37.html"><b>AD-37</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-07</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
 												<td><a href="AD/AD-38.html"><b>AD-38</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-05</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -304,12 +304,12 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-46.html"><b>AD-46</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-01</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
 												<td><a href="AD/AD-47.html"><b>AD-47</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-09</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -344,7 +344,7 @@
 											</tr>
 											<tr>
 												<td><a href="AD/AD-54.html"><b>AD-54</b></a></td>
-												<td><i>Select the Link for further details</i></td>
+												<td><i>Component Replaced by Component AF-03</i></td>
 												<td>X.XX CHF</td>
 											</tr>
 											<tr>
@@ -458,7 +458,51 @@
 									</table>
 								</div>
 							</section>
-
+							<br>
+							<button type="button" onclick="tableToCSV()"> download CSV</button>
+							<script type="text/javascript">
+								function tableToCSV() {
+									// Variable to store the final csv data
+									var csv_data = [];
+									// Get each row data
+									var rows = document.getElementsByTagName('tr');
+									for (var i = 0; i < rows.length; i++) {
+										// Get each column data
+										var cols = rows[i].querySelectorAll('td,th');
+										// Stores each csv row data
+										var csvrow = [];
+										for (var j = 0; j < cols.length; j++) {
+											// Get the text data of each cell
+											// of a row and push it to csvrow
+											csvrow.push(cols[j].innerHTML);}
+										// Combine each column value with comma
+										csv_data.push(csvrow.join(","));}
+									// Combine each row data with new line character
+									csv_data = csv_data.join('\n');
+									// Call this function to download csv file 
+									downloadCSVFile(csv_data);			 
+								}
+							
+								function downloadCSVFile(csv_data) {								 
+									// Create CSV file object and feed our csv_data into it
+									CSVFile = new Blob([csv_data], {type: "text/csv"});
+									// Create to temporary link to initiate download process
+									var temp_link = document.createElement('a');
+									// Download csv file
+									temp_link.download = "Component Type List.csv";
+									var url = window.URL.createObjectURL(CSVFile);
+									temp_link.href = url;
+							
+									// This link should not be displayed
+									temp_link.style.display = "none";
+									document.body.appendChild(temp_link);
+							
+									// Automatically click the link to trigger download
+									temp_link.click();
+									document.body.removeChild(temp_link);
+								}
+							</script>
+							<br><br>
 						</div>
 					</div>
 

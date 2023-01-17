@@ -4,14 +4,19 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
-        <a-marker preset="hiro">
-            <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+        <a-marker-camera preset='hiro'>
+            <a-entity gltf-model="images/domeModel.gltf" scale="2 2 2"></a-entity>
+        </a-marker-camera>
+            
+            <!-- doesnt work, assume its still the hosting site for gltf
+            <a-marker preset="hiro">
+            <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server 
             <a-entity
             position="0 0 0"
             scale="1 1 1"
             gltf-model="https://github.com/cea-eth/dome1/blob/main/images/domeModel.gltf?raw=true"
             ></a-entity>
-        </a-marker>
+        </a-marker> -->
         <a-entity camera></a-entity>
         </a-scene>
     </body>

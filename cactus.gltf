@@ -315,12 +315,7 @@
             ]
         }
     ],
-   <!-- "buffers": [
-        <!--{
-           <!-- "byteLength": 98328,
-           <!-- "uri": "D:/m/Models/Cactuses/To_stocks/C1.bin" -->
-        }
-    ],
+   
     "bufferViews": [
         {
             "buffer": 0,
